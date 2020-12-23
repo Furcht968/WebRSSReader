@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>RSSリーダー - {{data.rss.channel.title}}</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body class="grey darken-4 white-text">
+  <nav>
+    <div class="nav-wrapper grey darken-4 white-text">
+      <a href="/" class="brand-logo white-text">RSSリーダー</a>
+    </div>
+  </nav>
+  <div class="row">
+    <div class="col s12">
+      <div class="card grey darken-4 white-text">
+        <div class="card-content">
+          <div class="card-title">{{data.rss.channel.title}}</div>
+          {{data.rss.channel.description}}<br>
+          <div class="copyright">
+            {% if data.rss.channel.link %}
+            {{data.rss.channel.copyright}}
+            {% endif %}
+          </div>
+          </div>
+          {% if data.rss.channel.link %}
+          <div class="card-action">
+            <a href="{{data.rss.channel.link}}">公式のサイトで見る。</a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    {% for i in data.rss.channel.item %}
+    <div class="col s12">
+      <div class="card grey darken-4 white-text">
+        <div class="card-content">
+          <div class="card-title">{{ i.title }}</div>
+            {% if i.pubDate %}
+            <div>{{ i.pubDate }}</div>
+            {% endif %}
+            {% if i.description %}
+            <p>{{i.description}}</p>
+            {% endif %}
+          </div>
+          {% if i.link %}
+          <div class="card-action">
+            <a href="{{i.link}}">本文を見る</a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
