@@ -37,22 +37,23 @@
       <div class="card grey darken-4 white-text">
         <div class="card-content">
           <div class="card-title">{{ i.title }}</div>
-            {% if i.pubDate %}
-            <div>{{ i.pubDate }}</div>
-            {% endif %}
-            {% if i.description %}
-            <p>{{i.description}}</p>
-            {% endif %}
-          </div>
+          {% if i.pubDate %}
+          <div>{{ i.pubDate }}</div>
+          {% endif %}
+          {% if i.description %}
+          {{ i.description }}
+          {% endif %}
           {% if i.link %}
-          <div class="card-action">
-            <a href="{{i.link}}">本文を見る</a>
-          </div>
+        </div>
+        <div class="card-action">
+          <a href="{{i.link}}">本文を見る</a>
+        </div>
         {% endif %}
       </div>
     </div>
     {% endfor %}
   </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
   <script async src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
