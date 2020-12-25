@@ -9,6 +9,8 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
+import django_heroku
+django_heroku.settings(locals())
 
 import os
 
@@ -124,7 +126,3 @@ try:
     from .local_settings import *
 except ImportError:
     pass
-
-if not DEBUG:
-    import django_heroku
-    django_heroku.settings(locals())
